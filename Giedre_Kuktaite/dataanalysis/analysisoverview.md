@@ -1,1 +1,3 @@
 This is the folder for the data analysis part of the project. The excel file contains platform layout data for all levels of Super Mario Bros (platform count, enemy count, moving platform count, dangerous platform count and positions of every platform (this took far too long but alas)). The code calculates the average number of platforms and returns that amount of most commonly occuring platforms, average numbers of enemies, moving platforms and dangerous platforms.
+
+To run the code ensure that the data is recognisable by your code reader. In Visual Studio Code they should be in the same folder and that folder should be loaded. As long as the data file name isn't changed that should be able to run.
