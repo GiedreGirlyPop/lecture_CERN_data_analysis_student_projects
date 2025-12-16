@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwwt10h5ukbo"]
+
+[ext_resource type="Script" uid="uid://roqtiap0veci" path="res://assets/scripts/snake.gd" id="1_rpwqq"]
+[ext_resource type="Texture2D" uid="uid://bp5bekblptit3" path="res://assets/sprites/Snake/snake_0001.png" id="2_aoe55"]
+[ext_resource type="Texture2D" uid="uid://i0p2wg5f5ffx" path="res://assets/sprites/Snake/snake_0004.png" id="3_e8cnu"]
+[ext_resource type="Texture2D" uid="uid://b3h4m5s8cagtx" path="res://assets/sprites/Snake/snake_0005.png" id="4_ijs1l"]
+[ext_resource type="Texture2D" uid="uid://b52lxocgonm8o" path="res://assets/sprites/Snake/snake_0006.png" id="5_giskl"]
+[ext_resource type="Texture2D" uid="uid://me25cs3xdgw4" path="res://assets/sprites/Snake/snake_0009.png" id="6_7dwi6"]
+[ext_resource type="Texture2D" uid="uid://dnkvh1nxeja1k" path="res://assets/sprites/Snake/snake_0010.png" id="7_a5lhs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjffk"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0whf"]
+radius = 7.071068
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_afh6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aoe55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aoe55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aoe55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aoe55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aoe55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aoe55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e8cnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ijs1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_giskl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_giskl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_giskl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7dwi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a5lhs")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
+}]
+
+[node name="snake" type="CharacterBody2D"]
+script = ExtResource("1_rpwqq")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -33)
+shape = SubResource("CapsuleShape2D_bjffk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -51)
+shape = SubResource("CircleShape2D_l0whf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -37)
+scale = Vector2(1, 0.9637681)
+sprite_frames = SubResource("SpriteFrames_afh6c")
+animation = &"walk"
+frame_progress = 0.7430523

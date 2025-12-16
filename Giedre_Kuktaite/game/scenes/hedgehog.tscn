@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj68is7lci4vw"]
+
+[ext_resource type="Script" uid="uid://b11kbyyokplri" path="res://assets/scripts/bee.gd" id="1_o1o66"]
+[ext_resource type="Texture2D" uid="uid://csi5tbfd7inl3" path="res://assets/sprites/hedgehog.png" id="2_1gud8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smbag"]
+size = Vector2(16, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0whf"]
+radius = 7.071068
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1o66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1gud8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="hedgehog" type="CharacterBody2D"]
+script = ExtResource("1_o1o66")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_smbag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l0whf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o1o66")
+animation = &"walk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
