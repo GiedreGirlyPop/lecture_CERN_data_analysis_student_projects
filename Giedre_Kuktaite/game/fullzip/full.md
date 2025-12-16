@@ -1,0 +1,1 @@
+Here are the full zip files to be downloaded at once, the individual files and running details are presented in the other folders: scenes, scripts and game assets. The zip project file should be extracted and loaded into godot as is. The game can be played via "finalproject_game_giedrekuktaite" file
